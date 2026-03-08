@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>March 8 Women's Day</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #fff0f6, #ffe3ec, #ffd6e7);
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .main-heart {
+      width: 220px;
+      height: 220px;
+      background: #ff4d88;
+      position: relative;
+      transform: rotate(-45deg);
+      margin: 80px auto 40px;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+      box-shadow: 0 20px 40px rgba(255, 77, 136, 0.35);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .main-heart::before,
+    .main-heart::after {
+      content: "";
+      width: 220px;
+      height: 220px;
+      background: #ff4d88;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .main-heart::before {
+      top: -110px;
+      left: 0;
+    }
+
+    .main-heart::after {
+      top: 0;
+      left: 110px;
+    }
+
+    .main-heart:hover {
+      box-shadow: 0 28px 55px rgba(255, 77, 136, 0.5);
+    }
+
+    .main-heart.active {
+      animation: bounceHeart 0.5s ease;
+    }
+
+    .heart-text {
+      position: absolute;
+      inset: 0;
+      transform: rotate(45deg);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.3rem;
+      padding: 1rem;
+    }
+
+    .floating-heart {
+      position: absolute;
+      font-size: 1.75rem;
+      animation: floatUp 4s linear forwards;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .message-card {
+      max-width: 700px;
+      margin: 0 auto;
+      border: none;
+      border-radius: 1.25rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(6px);
+    }
+
+    .mini-heart-card {
+      border: none;
+      border-radius: 1.25rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+      overflow: hidden;
+      background: white;
+    }
+
+    .mini-heart-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(255, 77, 136, 0.18);
+    }
+
+    .heart-img-box {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #fff0f6, #ffd6e7);
+      position: relative;
+    }
+
+    .mini-heart-shape {
+      width: 90px;
+      height: 90px;
+      background: #ff5c93;
+      position: relative;
+      transform: rotate(-45deg);
+    }
+
+    .mini-heart-shape::before,
+    .mini-heart-shape::after {
+      content: "";
+      width: 90px;
+      height: 90px;
+      background: #ff5c93;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .mini-heart-shape::before {
+      top: -45px;
+      left: 0;
+    }
+
+    .mini-heart-shape::after {
+      top: 0;
+      left: 45px;
+    }
+
+    .mini-heart-card.liked .mini-heart-shape,
+    .mini-heart-card.liked .mini-heart-shape::before,
+    .mini-heart-card.liked .mini-heart-shape::after {
+      background: #e83e8c;
+    }
+
+    .sparkle {
+      position: absolute;
+      font-size: 1.1rem;
+      animation: sparkle 1.3s ease-in-out infinite alternate;
+    }
+
+    .sparkle.s1 { top: 18%; left: 22%; }
+    .sparkle.s2 { top: 22%; right: 20%; animation-delay: 0.3s; }
+    .sparkle.s3 { bottom: 18%; left: 28%; animation-delay: 0.6s; }
+    .sparkle.s4 { bottom: 20%; right: 26%; animation-delay: 0.9s; }
+
+    @keyframes pulse {
+      0%, 100% { transform: rotate(-45deg) scale(1); }
+      50% { transform: rotate(-45deg) scale(1.06); }
+    }
+
+    @keyframes bounceHeart {
+      0% { transform: rotate(-45deg) scale(1); }
+      35% { transform: rotate(-45deg) scale(1.18); }
+      100% { transform: rotate(-45deg) scale(1); }
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-180px) scale(1.6);
+        opacity: 0;
+      }
+    }
+
+    @keyframes sparkle {
+      from { transform: scale(1) rotate(0deg); opacity: 0.6; }
+      to { transform: scale(1.3) rotate(15deg); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero d-flex align-items-center">
+    <div class="container py-5">
+      <div class="text-center mb-4">
+        <span class="badge rounded-pill bg-danger-subtle text-danger px-3 py-2 mb-3">
+          March 8 • International Women's Day
+        </span>
+        <h1 class="display-4 fw-bold text-danger-emphasis">Celebrate Women With Love</h1>
+        <p class="lead text-secondary mb-0">
+          Tap the heart and the cards to send love, respect, and appreciation.
+        </p>
+      </div>
+
+      <div class="position-relative text-center" id="heartArea">
+        <div class="main-heart" id="mainHeart">
+          <div class="heart-text">Happy Women's Day</div>
+        </div>
+      </div>
+
+      <div class="card message-card p-4 p-md-5 mt-4">
+        <div class="text-center">
+          <h2 class="fw-bold text-danger mb-3" id="messageTitle">A Heart Full of Appreciation</h2>
+          <p class="text-secondary fs-5 mb-0" id="messageText">
+            Celebrating strength, kindness, brilliance, and the beautiful impact women make every day.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-4">
+        <div class="col-md-4">
+          <div class="mini-heart-card card h-100 text-center p-3" data-message="Thank you for your strength and courage.">
+            <div class="heart-img-box rounded-4 mb-3">
+              <div class="sparkle s1">✨</div>
+              <div class="sparkle s2">💖</div>
+              <div class="sparkle s3">✨</div>
+              <div class="sparkle s4">🌸</div>
+              <div class="mini-heart-shape"></div>
+            </div>
+            <h5 class="fw-bold">Strength</h5>
+            <p class="text-secondary mb-0">Celebrate resilience and confidence.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="mini-heart-card card h-100 text-center p-3" data-message="Thank you for your care, warmth, and endless kindness.">
+            <div class="heart-img-box rounded-4 mb-3">
+              <div class="sparkle s1">🌷</div>
+              <div class="sparkle s2">✨</div>
+              <div class="sparkle s3">💗</div>
+              <div class="sparkle s4">✨</div>
+              <div class="mini-heart-shape"></div>
+            </div>
+            <h5 class="fw-bold">Kindness</h5>
+            <p class="text-secondary mb-0">Celebrate compassion and love.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="mini-heart-card card h-100 text-center p-3" data-message="Thank you for your ideas, talent, and inspiring leadership.">
+            <div class="heart-img-box rounded-4 mb-3">
+              <div class="sparkle s1">⭐</div>
+              <div class="sparkle s2">💞</div>
+              <div class="sparkle s3">✨</div>
+              <div class="sparkle s4">🌺</div>
+              <div class="mini-heart-shape"></div>
+            </div>
+            <h5 class="fw-bold">Inspiration</h5>
+            <p class="text-secondary mb-0">Celebrate brilliance and creativity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const mainHeart = document.getElementById("mainHeart");
+    const heartArea = document.getElementById("heartArea");
+    const messageTitle = document.getElementById("messageTitle");
+    const messageText = document.getElementById("messageText");
+    const cards = document.querySelectorAll(".mini-heart-card");
+
+    const mainMessages = [
+      "Celebrating every woman who leads with heart.",
+      "Wishing you joy, respect, and appreciation today.",
+      "Your strength, grace, and brilliance make the world brighter.",
+      "Happy Women's Day to every amazing woman everywhere."
+    ];
+
+    mainHeart.addEventListener("click", function (e) {
+      this.classList.remove("active");
+      void this.offsetWidth;
+      this.classList.add("active");
+
+      messageTitle.textContent = "Happy March 8 Women's Day";
+      messageText.textContent =
+        mainMessages[Math.floor(Math.random() * mainMessages.length)];
+
+      for (let i = 0; i < 10; i++) {
+        createFloatingHeart(e.clientX, e.clientY);
+      }
+    });
+
+    cards.forEach(card => {
+      card.addEventListener("click", function () {
+        cards.forEach(c => c.classList.remove("liked"));
+        this.classList.add("liked");
+        messageTitle.textContent = this.querySelector("h5").textContent;
+        messageText.textContent = this.dataset.message;
+
+        const rect = this.getBoundingClientRect();
+        for (let i = 0; i < 6; i++) {
+          createFloatingHeart(rect.left + rect.width / 2, rect.top + 60);
+        }
+      });
+    });
+
+    function createFloatingHeart(x, y) {
+      const heart = document.createElement("span");
+      heart.className = "floating-heart";
+      heart.textContent = Math.random() > 0.3 ? "💖" : "🌸";
+
+      const areaRect = heartArea.getBoundingClientRect();
+      const left = x - areaRect.left + (Math.random() * 80 - 40);
+      const top = y - areaRect.top + (Math.random() * 40 - 20);
+
+      heart.style.left = `${left}px`;
+      heart.style.top = `${top}px`;
+
+      heartArea.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
